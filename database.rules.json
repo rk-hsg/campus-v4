@@ -1,0 +1,44 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "members": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "!newData.exists() || newData.child('name').isString() && newData.child('name').val().length <= 40"
+      }
+    },
+    "net": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "chat": {
+      ".read": "auth != null",
+      "$channel": {
+        ".indexOn": ["ts"],
+        "$msg": {
+          ".write": "auth != null && !data.exists() && newData.child('uid').val() === auth.uid",
+          ".validate": "newData.child('text').isString() && newData.child('text').val().length <= 500 && newData.child('name').isString()"
+        }
+      }
+    },
+    "rsvp": {
+      ".read": "auth != null",
+      "$event": {
+        "$uid": { ".write": "auth != null && auth.uid === $uid" }
+      }
+    },
+    "feed": {
+      ".read": "auth != null",
+      ".indexOn": ["ts"],
+      "$id": {
+        ".write": "auth != null && !data.exists()",
+        ".validate": "newData.child('uid').val() === auth.uid"
+      }
+    },
+    "reports": {
+      "$id": { ".write": "auth != null && !data.exists() && newData.child('by').val() === auth.uid" }
+    }
+  }
+}
