@@ -9,13 +9,13 @@
 // ===========================================================================
 
 export const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyA1zR0NssCj6P8nCofNwORj1M7vH__kg2w",
+  authDomain: "campus-v2-28596.firebaseapp.com",
+  databaseURL: "https://campus-v2-28596-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "campus-v2-28596",
+  storageBucket: "campus-v2-28596.firebasestorage.app",
+  messagingSenderId: "415301599548",
+  appId: "1:415301599548:web:7c7bfcfed04d6c296c1e39"
 };
 
 // Einstellungen für die Community (dürfen angepasst werden)
